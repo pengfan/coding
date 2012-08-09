@@ -4,5 +4,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-
-</resources>
+    
+    <string name="custom_list_more">点击查看更多</string>
+    <string name="custom_list_down_refresh">下拉刷新</string>
+    <string name="custom_list_last_updated">最后更新时间</string>
+    <string name="custom_list_refresh">下拉刷新</string>
+    <string name="custom_list_lossen_refresh">松开即可刷新</string>
+    
+    </resources>
