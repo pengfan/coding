@@ -19,11 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Scoller"
+            android:name=".ui.Scoller"
             android:label="@string/ui_scoller" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>

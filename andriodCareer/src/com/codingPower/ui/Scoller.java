@@ -25,6 +25,7 @@ public class Scoller extends Activity {
         bannerScrollView = (ScrollView) findViewById(R.id.sceneScroll);
         bannerLayout = (LinearLayout) findViewById(R.id.sceneLayout);
         flinger = new Flinger();
+        super.onCreate(savedInstanceState);
     }
 
     /**
