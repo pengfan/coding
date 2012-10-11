@@ -2,6 +2,10 @@ package com.codingPower.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Scroller;
@@ -18,16 +22,40 @@ public class Scoller extends Activity {
     private ScrollView bannerScrollView; //图片滚动层
     private LinearLayout bannerLayout;//图片容器
     private Flinger flinger;
+    private int flingHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.scoller);
+        flingHeight = getResources().getDrawable(R.drawable.photo_02).getIntrinsicHeight();
         bannerScrollView = (ScrollView) findViewById(R.id.sceneScroll);
+        LayoutParams params = bannerScrollView.getLayoutParams();
+        params.height = flingHeight;
+        bannerScrollView.setLayoutParams(params);
         bannerLayout = (LinearLayout) findViewById(R.id.sceneLayout);
         flinger = new Flinger();
+
         super.onCreate(savedInstanceState);
+        initBanner();
+        bannerLayout.setClickable(true);
+        bannerLayout.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                flinger.start(flingHeight);
+            }
+        });
     }
 
+    private void initBanner() {
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.photo_02);
+        bannerLayout.addView(imageView);
+        imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.photo_03);
+        bannerLayout.addView(imageView);
+
+    }
     /**
      * 自定义class用于平滑滚动，
      * @author pengfan
