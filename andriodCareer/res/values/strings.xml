@@ -3,4 +3,6 @@
     <string name="app_name">android_career</string>
 
     <string name="ui_scoller">ui/scoller</string>
+    
+    <string name="store_Persistence">store/Persistence</string>
 </resources>
