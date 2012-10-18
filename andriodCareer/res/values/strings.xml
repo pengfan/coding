@@ -3,7 +3,9 @@
     <string name="app_name">android_career</string>
 
     <string name="ui_scoller">ui/scoller</string>
+    <string name="ui_tabSwitcher">ui/tabSwitcher</string>
     <string name="store_Persistence">store/Persistence</string>
+    
     
     <string name="persistence_info_male">男</string>
     <string name="persistence_info_female">女</string>
