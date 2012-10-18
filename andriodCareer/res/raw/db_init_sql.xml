@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">  
+<properties>  
+    <comment>示例相关操纵sql语句，建表语句</comment>
+    <!-- 建立信息表 -->
+    <entry key="info.create">
+        <![CDATA[
+         CREATE TABLE IF NOT EXISTS [info] (
+         	[name] TEXT PRIMARY KEY,
+         	[hobbies] TEXT ,
+			[gender] INTEGER ,
+			[birthday] TEXT,
+			[age] INTEGER ,
+			[description] TEXT)
+		]]>
+    </entry>  
+</properties> 

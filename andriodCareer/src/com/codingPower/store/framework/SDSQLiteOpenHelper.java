@@ -288,7 +288,9 @@ public class SDSQLiteOpenHelper
 	 */
 	public void onCreate(SQLiteDatabase db)
 	{
-		db
+		String info_sql = Database.createSqlMap.getProperty("info.create");
+		db.execSQL(info_sql);
+		/*db
 				.execSQL("CREATE TABLE IF NOT EXISTS [attchmentinfo] ([attchid] TEXT  UNIQUE NOT NULL PRIMARY KEY," 
 						+
 						"[mailuid] TEXT  NULL,[filesize] TEXT  NOT NULL,[filename] TEXT  NOT NULL,[content_uri] TEXT," 
@@ -374,7 +376,7 @@ public class SDSQLiteOpenHelper
 						" previewfilename nvarchar(100),updatetime numeric(16),md5 nvarchar(50)," 
 						+
 						"dirpath nvarchar(256),identifier nvarchar(256));");
-		db.execSQL("CREATE TABLE IF NOT EXISTS ContactCaches(mailname nvarchar(256), mailaddress nvarchar(256));");
+		db.execSQL("CREATE TABLE IF NOT EXISTS ContactCaches(mailname nvarchar(256), mailaddress nvarchar(256));");*/
 	}
 
 	/**

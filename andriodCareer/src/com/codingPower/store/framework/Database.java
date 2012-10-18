@@ -1,17 +1,23 @@
 package com.codingPower.store.framework;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.InvalidPropertiesFormatException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
+import com.codingPower.R;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -53,6 +59,8 @@ public class Database
 			+ System.getProperty("file.separator") + PROJECTNAME + "/";
 	
 	public static final String TAG = "DATABASE";
+	
+	public static Properties createSqlMap = new Properties();
 	/**
 	 *ALLRESULT
 	 */
@@ -84,6 +92,13 @@ public class Database
 	public static void init(Context context)
 	{
 		dataRootPath = context.getApplicationInfo().dataDir; 
+		try
+		{
+			createSqlMap.loadFromXML(context.getResources().openRawResource(R.raw.db_init_sql));
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	/**

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">  
+<properties>  
+    <comment>示例相关操纵sql语句</comment>
+    <!-- 建立信息表 -->
+    <entry key="info.create">
+        <![CDATA[
+         CREATE TABLE IF NOT EXISTS [info] (
+         	[name] TEXT PRIMARY KEY,
+         	[hobbies] TEXT ,
+			[gender] INTEGER ,
+			[birthday] TEXT,
+			[age] INTEGER ,
+			[description] TEXT)
+		]]>
+    </entry>  
+    <!-- 收取所有邮件 -->
+    <entry key="info.getAll">
+        <![CDATA[
+         SELECT 
+            name, 
+            hobbies,
+            gender, 
+            birthday, 
+            age,
+            description
+        FROM 
+            info
+		]]>
+    </entry>
+    <!-- 收取所有已经删除的邮件 -->
+    <entry key="inbox.getAllDeleted">
+        <![CDATA[
+         SELECT 
+            mailuid, 
+            m.accountid accountid,
+            mailsize, 
+            receivetime, 
+            subject,
+            mailfrom, 
+            mailto, 
+            mailcc,
+            priority,
+            readreply,
+            recvtype,
+            mailbody,
+            m.attachment_count attachmentcount,
+            isread,
+            m.mailaccount mailaccount,
+            flag,
+            isdelete,
+            ishasbody
+        FROM 
+            mailmessageinfo m , mailaccountinfo a
+        WHERE  
+            m.mailaccount = a.mailaccount and a.accountid = ?
+        ORDER BY 
+            m.rowid DESC
+		]]>
+    </entry>
+    <!-- 插入一条记录 -->
+    <entry key="inbox.insert">
+        <![CDATA[
+         INSERT INTO 
+         mailmessageinfo
+         (
+            mailuid, 
+            accountid,
+            mailsize, 
+            receivetime, 
+            subject,
+            mailfrom, 
+            mailto, 
+            mailcc,
+            priority,
+            readreply,
+            recvtype,
+            mailbody,
+            attachment_count,
+            isread,
+            mailaccount,
+            flag,
+            isdelete,
+            ishasbody
+         )
+         VALUES
+         (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+		]]>
+    </entry>
+    <!-- 真实删除 -->
+    <entry key="inbox.delete">
+        <![CDATA[
+         DELETE FROM  
+            mailmessageinfo 
+         WHERE 
+            mailuid=?
+		]]>
+	</entry>
+    <!-- 更新已读,未读,删除状态 -->
+    <entry key="inbox.update">
+        <![CDATA[
+         UPDATE
+         	mailmessageinfo
+         SET
+	         isread = ?,
+	         isdelete = ?,
+	         flag = ?,
+	         ishasbody = ?,
+	         mailbody = ?
+         WHERE
+         	mailuid = ?
+		]]>
+    </entry>
+     <!-- 查找附件列表 -->
+    <entry key="mail.getAttachements">
+        <![CDATA[
+         SELECT 
+         	attchid id, 
+         	mailuid ,
+         	filesize, 
+         	filename, 
+         	content_uri contentUri,
+         	mime_type mimetype, 
+         	downloadfilename, 
+         	preview 
+         FROM 
+         	attchmentinfo 
+         WHERE 
+         	mailuid = ?
+		]]>
+    </entry>
+</properties> 

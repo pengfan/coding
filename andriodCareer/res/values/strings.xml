@@ -3,6 +3,14 @@
     <string name="app_name">android_career</string>
 
     <string name="ui_scoller">ui/scoller</string>
-    
     <string name="store_Persistence">store/Persistence</string>
+    
+    <string name="persistence_info_male">男</string>
+    <string name="persistence_info_female">女</string>
+    
+    <string name="persistence_info_name">姓名</string>
+    <string name="persistence_info_gender">性别</string>
+    <string name="persistence_info_birthday">生日</string>
+    <string name="persistence_info_hobby">爱好</string>
+    <string name="persistence_info_description">描述</string>
 </resources>

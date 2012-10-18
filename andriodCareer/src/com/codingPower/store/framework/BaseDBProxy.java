@@ -1,5 +1,7 @@
 package com.codingPower.store.framework;
 
+import java.util.Date;
+
 /**
  * 所有数据库代理类的父类，利用此代理类可以将数据库持久化逻辑和业务逻辑分离
  * 
@@ -123,5 +125,16 @@ public class BaseDBProxy
 	protected String parseBooleanToString(boolean value)
 	{
 		return value ? "1" : "0";
+	}
+	
+	protected String parseDateToString(Date date)
+	{
+		return Long.toString(date.getTime());
+	}
+	
+	protected Date parseStringToDate(String date)
+	{
+		long time = Long.parseLong(date);
+		return new Date(time);
 	}
 }
