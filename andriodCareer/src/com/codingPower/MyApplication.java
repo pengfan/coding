@@ -8,8 +8,7 @@ public class MyApplication extends Application
 {
 
 	@Override
-	public void onCreate()
-	{
+	public void onCreate(){
 		super.onCreate();
 		//数据库初始化方法，在应用启动前调用
 		Database.init(this);
