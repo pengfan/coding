@@ -1,9 +1,4 @@
 package com.codingPower.ui.adapter;
-
-import java.text.DecimalFormat;
-import java.text.FieldPosition;
-import java.text.NumberFormat;
-import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +20,7 @@ public class HighlightAutoCompleteFuzzyAdapter<T> extends BaseAdapter implements
 		Filterable {
 
 	private Context mContext;
+	private LayoutInflater mInflater;
 	private int mTextViewResourceId;
 	
 	private AutoCompleteTextView mAutoCompleteView;
@@ -35,19 +31,24 @@ public class HighlightAutoCompleteFuzzyAdapter<T> extends BaseAdapter implements
 	private final Object mLock = new Object();
 	private String mColorStr = "#F3822A";
 
-	/*
-	public HighlightAutoCompleteFuzzyAdapter(Context context, int textViewResourceId,
-			List<T> objects) {
-		super(context, textViewResourceId, objects);
-		mObjects = objects;
-	}
-	*/
 
 	public HighlightAutoCompleteFuzzyAdapter(AutoCompleteTextView autoCompleteTextView,
 			int textViewResourceId, T[] objects) {
+		init(autoCompleteTextView, textViewResourceId);
+		mObjects = Arrays.asList(objects);
+	}
+	
+	public HighlightAutoCompleteFuzzyAdapter(AutoCompleteTextView autoCompleteTextView,
+			int textViewResourceId, List<T> objects) {
+		init(autoCompleteTextView, textViewResourceId);
+		mObjects = objects;
+	}
+	
+	private void init(AutoCompleteTextView autoCompleteTextView,
+			int textViewResourceId){
 		mAutoCompleteView = autoCompleteTextView;
 		mContext = mAutoCompleteView.getContext();
-		mObjects = Arrays.asList(objects);
+		mInflater  = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mTextViewResourceId = textViewResourceId;
 	}
 	
@@ -80,7 +81,7 @@ public class HighlightAutoCompleteFuzzyAdapter<T> extends BaseAdapter implements
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView == null){
-			convertView = LayoutInflater.from(mContext).inflate(mTextViewResourceId, null);
+			convertView = mInflater.inflate(mTextViewResourceId, parent, false);
 		}
 		TextView titleView = (TextView)convertView;
 		String v = String.valueOf(mObjects.get(position));

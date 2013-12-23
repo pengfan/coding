@@ -7,6 +7,7 @@
     <string name="ui_roateView">ui/roateView</string>
     <string name="ui_supportv7_Overlook">ui/supportv7/Overlook</string>
     <string name="ui_fuzzyAutoComplete">ui/fuzzyAutoComplete</string>
+    <string name="ui_amapframework">ui/amapframework</string>
     <string name="store_Persistence">store/Persistence</string>
     
     <string name="persistence_info_male">男</string>
