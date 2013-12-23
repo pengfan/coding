@@ -53,6 +53,25 @@
                 <category android:name="android.intent.category.PREFERENCE" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".ui.FuzzyAutoCompleteTextViewActivity"
+            android:label="@string/ui_fuzzyAutoComplete" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".ui.supportv7.Overlook"
+            android:label="@string/ui_supportv7_Overlook" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>

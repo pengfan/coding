@@ -69,6 +69,11 @@ public class RotatView extends View {
      */
     Bitmap rotatBitmap;
 
+    /**
+     * a view filled with image can whirling by finger
+     * @param context
+     * @param attrs
+     */
     public RotatView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();

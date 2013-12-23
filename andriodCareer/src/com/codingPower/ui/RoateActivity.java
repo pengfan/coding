@@ -7,6 +7,12 @@ import android.os.Bundle;
 import com.codingPower.R;
 import com.codingPower.ui.view.RotatView;
 
+/**
+ * a view filled with image can whirling by finger
+ * 
+ * @author pengf
+ *
+ */
 public class RoateActivity extends Activity {
 
     @Override
