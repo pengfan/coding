@@ -32,7 +32,7 @@
             android:label="@string/store_Persistence" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="android.intent.category.PREFERENCE" />
             </intent-filter>
         </activity>
         
@@ -41,7 +41,7 @@
             android:label="@string/ui_tabSwitcher" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="android.intent.category.PREFERENCE" />
             </intent-filter>
         </activity>
         
@@ -50,7 +50,7 @@
             android:label="@string/ui_roateView" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="android.intent.category.PREFERENCE" />
             </intent-filter>
         </activity>
     </application>

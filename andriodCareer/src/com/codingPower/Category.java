@@ -38,7 +38,7 @@ public class Category extends ListActivity {
         List<Map> myData = new ArrayList<Map>();
 
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_SAMPLE_CODE);
+        mainIntent.addCategory(Intent.CATEGORY_PREFERENCE);
 
         PackageManager pm = getPackageManager();
         List<ResolveInfo> list = pm.queryIntentActivities(mainIntent, 0);
