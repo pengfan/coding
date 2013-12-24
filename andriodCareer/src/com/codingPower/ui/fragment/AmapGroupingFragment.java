@@ -16,8 +16,9 @@ import com.codingPower.ui.amap.AMapFragment;
 import com.codingPower.ui.amap.MarkViewAdapter;
 import com.codingPower.ui.amap.Markable;
 import com.codingPower.ui.amap.MarkableGroup;
+import com.codingPower.ui.model.MyTestLoc;
 
-public class AmapGroupingFragment extends AMapFragment {
+public class AmapGroupingFragment extends AMapFragment<MyTestLoc> {
 	private static LatLng defaultCenter = new LatLng(32.0223, 118.782);
 	
 	@Override
@@ -66,32 +67,6 @@ public class AmapGroupingFragment extends AMapFragment {
 		if(random.nextBoolean())
 			return 1;
 		return -1;
-	}
-	
-	private static class MyTestLoc extends Markable{
-		private String id;
-		private LatLng pos;
-		
-		private MyTestLoc(String id, LatLng pos){
-			this.id = id;
-			this.pos = pos;
-		}
-		
-		@Override
-		public String ID() {
-			return id;
-		}
-
-		@Override
-		public int iconRes() {
-			return R.drawable.point;
-		}
-
-		@Override
-		public LatLng position() {
-			return pos;
-		}
-		
 	}
 	
 }

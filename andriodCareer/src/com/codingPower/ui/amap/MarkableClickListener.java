@@ -7,7 +7,7 @@ import com.amap.api.maps.model.LatLng;
  * @author pengf
  *
  */
-public interface MarkableClickListener<T extends Markable> {
+public interface MarkableClickListener<T> {
 
 	/**
 	 * 点击触发时

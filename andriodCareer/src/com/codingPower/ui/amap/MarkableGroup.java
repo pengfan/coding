@@ -13,7 +13,7 @@ public class MarkableGroup extends Markable {
 	private int iconRes;
 	private int checkIconRes;
 	private LatLng center;
-	private LinkedHashSet <Markable> markableSet = new LinkedHashSet<Markable>();
+	private LinkedHashSet<Markable>  markableSet = new LinkedHashSet<Markable>();
 
 	private MarkableGroup() {
 	}
@@ -86,11 +86,6 @@ public class MarkableGroup extends Markable {
 	}
 
 	public void add(Markable markable) {
-		/*if(getMarker() != null && markableSet.size() == 1){
-			//markableSet.add(markable);
-			//getMarker().setPosition(position());
-			//getMarker().setIcon(icon(resources));
-		}*/
 		markableSet.add(markable);
 	}
 

@@ -38,7 +38,7 @@ import com.amap.api.maps.model.PolylineOptions;
 import com.codingPower.R;
 import com.codingPower.ui.base.BaseFragment;
 
-public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
+public class AMapFragment<T extends Markable> extends BaseFragment implements OnMapLoadedListener,
 		OnMarkerClickListener, OnMapClickListener, OnCameraChangeListener {
 
 	private MapView mapView;
@@ -64,7 +64,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 	private InfoViewAdapter mInfoViewAdapter;
 	private OnSurroundingChangedListener mOnSurroundingChangedListener;
 	private MarkableGroupClickListener mMarkableGroupClickListener;
-	private MarkableClickListener mMarkableClickListener;
+	private MarkableClickListener<T> mMarkableClickListener;
 	private MarkViewAdapter mMarkGroupViewAdapter;
 
 	@Override
@@ -224,7 +224,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 		mOnSurroundingChangedListener = listener;
 	}
 
-	public void setOnMarkableClickListener(MarkableClickListener listener) {
+	public void setOnMarkableClickListener(MarkableClickListener<T> listener) {
 		mMarkableClickListener = listener;
 	}
 
@@ -285,7 +285,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 		mAMarkMap.put(id, mark);
 	}
 
-	public void autoZoom(Collection<? extends Markable> collection) {
+	public void autoZoom(Collection<T> collection) {
 		if (!collection.isEmpty()) {
 			if(collection.size() == 1){
 				centerTo(collection.iterator().next().position());
@@ -367,7 +367,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 
 	@Override
 	public boolean onMarkerClick(Marker marker) {
-		Markable mark = (Markable) marker.getObject();
+		T mark = (T) marker.getObject();
 		noActiveSurrondingChange = true;
 		if (focusMark != mark) {
 			clearFocus();
@@ -519,7 +519,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 		}
 	}
 	
-	public void groupingBatch(Collection<? extends Markable> collection, boolean autoZoom){
+	public void groupingBatch(Collection<T> collection, boolean autoZoom){
 		mGrouping = true;
 		if(collection.isEmpty()){
 			removeAll();
@@ -534,7 +534,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 		}
 	}
 	
-	private void getGrouping(Collection<? extends Markable> collection){
+	private void getGrouping(Collection<T> collection){
 		if(mGroupTask == null){
 			mGroupTask = new GroupTask();
 			mGroupTask.execute(collection);
@@ -559,9 +559,9 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 	 *
 	 */
 	private class OneTimeMapSizeChangedListener implements OnCameraChangeListener{
-		Collection<? extends Markable> marks;
+		Collection<T> marks;
 		
-		private OneTimeMapSizeChangedListener(Collection<? extends Markable> marks){
+		private OneTimeMapSizeChangedListener(Collection<T> marks){
 			this.marks = marks;
 		}
 
@@ -578,12 +578,12 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 	}
 
 	private class GroupTask extends
-			AsyncTask<Collection<? extends Markable>, Object, Map<String, MarkableGroup>> {
+			AsyncTask<Collection<T>, Object, Map<String, MarkableGroup>> {
 
 		@Override
 		protected Map<String, MarkableGroup> doInBackground(
-				Collection<? extends Markable>... params) {
-			Collection<? extends Markable> markCollection = params[0];
+				Collection<T>... params) {
+			Collection<T> markCollection = params[0];
 			try {
 				return groupAll(markCollection, mGroupPixal);
 			} catch (TaskCanceledException e) {
@@ -651,7 +651,7 @@ public class AMapFragment extends BaseFragment implements OnMapLoadedListener,
 			return result;
 		}
 		
-		private Map<String, MarkableGroup> groupAll(Collection<? extends Markable> markList, double distance){
+		private Map<String, MarkableGroup> groupAll(Collection<T> markList, double distance){
 			Map<String, MarkableGroup> result = new HashMap<String, MarkableGroup>();
 			List<Markable> processed = new ArrayList<Markable>();
 			List<Markable> restOfAnnotations =new ArrayList<Markable>(markList);

@@ -9,12 +9,12 @@ import com.amap.api.maps.model.LatLng;
  * @author pengf
  *
  */
-public interface MarkableGroupClickListener<T> {
+public interface MarkableGroupClickListener {
 
 	/**
 	 * 点击触发时
 	 */
-	public void onClicked(Set<T> set);
+	public void onClicked(Set<Markable> set);
 	
 	/**
 	 * 点击取消时
