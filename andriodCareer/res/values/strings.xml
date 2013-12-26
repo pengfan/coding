@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">android_career</string>
+    
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="of_picker_setdate">设置日期</string>
+    <string name="of_picker_settime">设置时间</string>
+    <string name="update">更新</string>
+    <string name="update_ignore">跳过此版本</string>
+    <string name="downloading">正在下载</string>
+    <string name="downloadingfile">下载升级文件中</string>
+    <string name="downloaded">已下载:</string>
+    <string name="download_failue">下载升级文件失败！</string>
+    <string name="download_update_title">有新的版本更新</string>
+    
     <string name="ui_scoller">ui/scoller</string>
     <string name="ui_tabSwitcher">ui/tabSwitcher</string>
     <string name="ui_roateView">ui/roateView</string>
