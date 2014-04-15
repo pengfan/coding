@@ -60,9 +60,11 @@ public class Overlook extends ActionBarActivity {
 				) {
 					public void onDrawerClosed(View view) {
 						getSupportActionBar().setTitle(mTitle);
+						supportInvalidateOptionsMenu();
 					}
 		
 					public void onDrawerOpened(View drawerView) {
+						supportInvalidateOptionsMenu();
 					}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
