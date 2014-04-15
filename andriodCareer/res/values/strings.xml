@@ -29,5 +29,16 @@
     <string name="persistence_info_birthday">生日</string>
     <string name="persistence_info_hobby">爱好</string>
     <string name="persistence_info_description">描述</string>
+    
+    <string name="drawer_open">打开导航栏</string>
+    <string name="drawer_close">关闭导航栏</string>
+    
+    <string-array name="navi_array">
+        <item>导航1</item>
+        <item>导航2</item>
+        <item>导航3</item>
+        <item>导航4</item>
+        <item>导航5</item>
+    </string-array>
 
 </resources>
