@@ -1,8 +1,13 @@
 package com.codingPower.ui.supportv7;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -21,6 +26,8 @@ public class Overlook extends ActionBarActivity {
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
+	private int checkIndex = -1;
+	private List<FragmentTab> fragmentTabList = new ArrayList<FragmentTab>();
 	private String[] naviArray;
 	private CharSequence mTitle;
 
@@ -40,8 +47,8 @@ public class Overlook extends ActionBarActivity {
 				R.layout.ui_supportv7_overlook_list_item, naviArray));
 		mDrawerList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
 				selectItem(position);
 			}
 		});
@@ -53,32 +60,33 @@ public class Overlook extends ActionBarActivity {
 		// ActionBarDrawerToggle ties together the the proper interactions
 		// between the sliding drawer and the action bar app icon
 		mDrawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
-				mDrawerLayout, /* DrawerLayout object */
-				R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
-				R.string.drawer_open, /* "open drawer" description for accessibility */
-				R.string.drawer_close /* "close drawer" description for accessibility */
-				) {
-					public void onDrawerClosed(View view) {
-						getSupportActionBar().setTitle(mTitle);
-						supportInvalidateOptionsMenu();
-					}
-		
-					public void onDrawerOpened(View drawerView) {
-						supportInvalidateOptionsMenu();
-					}
+		mDrawerLayout, /* DrawerLayout object */
+		R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
+		R.string.drawer_open, /* "open drawer" description for accessibility */
+		R.string.drawer_close /* "close drawer" description for accessibility */
+		) {
+			public void onDrawerClosed(View view) {
+				getSupportActionBar().setTitle(mTitle);
+				supportInvalidateOptionsMenu();
+			}
+
+			public void onDrawerOpened(View drawerView) {
+				supportInvalidateOptionsMenu();
+			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		init();
 
 		if (savedInstanceState == null) {
 			selectItem(0);
 		}
 	}
-	
-    @Override
-    public void setTitle(CharSequence title) {
-    	mTitle = title;
-        getSupportActionBar().setTitle(title);
-    }
+
+	@Override
+	public void setTitle(CharSequence title) {
+		mTitle = title;
+		getSupportActionBar().setTitle(title);
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -91,10 +99,10 @@ public class Overlook extends ActionBarActivity {
 	}
 
 	private void selectItem(int position) {
-
+		switchTab(position);
 		// update selected item and title, then close the drawer
 		mDrawerList.setItemChecked(position, true);
-		setTitle(naviArray[position]);
+		setTitle(fragmentTabList.get(position).title);
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 
@@ -110,5 +118,59 @@ public class Overlook extends ActionBarActivity {
 		super.onConfigurationChanged(newConfig);
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	private void switchTab(int index) {
+		if (index != checkIndex) {
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			if (checkIndex >= 0) {
+				Fragment lastFragment = fragmentTabList.get(checkIndex).mFragment;
+				if (lastFragment != null && !lastFragment.isDetached()) {
+					ft.detach(lastFragment);
+				}
+			}
+			Fragment fragment = fragmentTabList.get(index).mFragment;
+			
+			if (!fragment.isAdded()) {
+				ft.add(R.id.content_frame, fragment);
+			} else {
+				ft.attach(fragment);
+			}
+			checkIndex = index;
+			ft.commit();
+		}
+		
+	}
+
+	private void init() {
+		FragmentTab tab = new FragmentTab();
+		tab.title = naviArray[0];
+		tab.mFragment = new SimpleFragment();
+		fragmentTabList.add(tab);
+
+		tab = new FragmentTab();
+		tab.title = naviArray[1];
+		tab.mFragment = new SearchFragment();
+		fragmentTabList.add(tab);
+
+		tab = new FragmentTab();
+		tab.title = naviArray[2];
+		tab.mFragment = new SimpleFragment();
+		fragmentTabList.add(tab);
+
+		tab = new FragmentTab();
+		tab.title = naviArray[3];
+		tab.mFragment = new SimpleFragment();
+		fragmentTabList.add(tab);
+
+		tab = new FragmentTab();
+		tab.title = naviArray[4];
+		tab.mFragment = new SimpleFragment();
+		fragmentTabList.add(tab);
+	}
+
+	private static class FragmentTab {
+		Fragment mFragment;
+		String title;
 	}
 }
