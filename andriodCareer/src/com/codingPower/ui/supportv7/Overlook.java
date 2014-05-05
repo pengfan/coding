@@ -129,13 +129,14 @@ public class Overlook extends ActionBarActivity {
 					ft.detach(lastFragment);
 				}
 			}
-			Fragment fragment = fragmentTabList.get(index).mFragment;
+			FragmentTab newTab = fragmentTabList.get(index);
 			
-			if (!fragment.isAdded()) {
-				ft.add(R.id.content_frame, fragment);
+			if (!newTab.isAdded) {
+				ft.add(R.id.content_frame, newTab.mFragment);
 			} else {
-				ft.attach(fragment);
+				ft.attach(newTab.mFragment);
 			}
+			newTab.isAdded = true;
 			checkIndex = index;
 			ft.commit();
 		}
@@ -172,5 +173,6 @@ public class Overlook extends ActionBarActivity {
 	private static class FragmentTab {
 		Fragment mFragment;
 		String title;
+		boolean isAdded;
 	}
 }
