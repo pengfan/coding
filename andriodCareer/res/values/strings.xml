@@ -20,6 +20,8 @@
     <string name="ui_fuzzyAutoComplete">ui/fuzzyAutoComplete</string>
     <string name="ui_amapframework">ui/amapframework</string>
     <string name="store_Persistence">store/Persistence</string>
+    
+    
     <string name="persistence_info_male">男</string>
     <string name="persistence_info_female">女</string>
     <string name="persistence_info_name">姓名</string>
@@ -35,15 +37,17 @@
     <string name="action_bar_sort">排序</string>
     <string name="action_bar_sort_alpha">字母序</string>
     <string name="action_bar_sort_size">大小序</string>
-    <string name="action_bar_share_with">分享...</string>
+    <string name="action_bar_share_with">分享</string>
     <string name="action_bar_settings">设置</string>
     <string name="drawer_open">打开导航栏</string>
     <string name="drawer_close">关闭导航栏</string>
+    
+    <string name="ui_supporv7_share_content">这是我们要分享的内容</string>
 
     <string-array name="navi_array">
         <item>导航1</item>
         <item>搜索</item>
-        <item>导航3</item>
+        <item>分享</item>
         <item>导航4</item>
         <item>导航5</item>
     </string-array>

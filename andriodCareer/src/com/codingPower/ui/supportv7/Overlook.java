@@ -156,7 +156,7 @@ public class Overlook extends ActionBarActivity {
 
 		tab = new FragmentTab();
 		tab.title = naviArray[2];
-		tab.mFragment = new SimpleFragment();
+		tab.mFragment = new ShareFragment();
 		fragmentTabList.add(tab);
 
 		tab = new FragmentTab();

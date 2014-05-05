@@ -46,11 +46,6 @@ public class SearchFragment extends Fragment {
 	}
 
 	@Override
-	public void onPrepareOptionsMenu(Menu menu) {
-		super.onPrepareOptionsMenu(menu);
-	}
-
-	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		// Place an action bar item for searching.
 		MenuItem item = menu.add("Search");
