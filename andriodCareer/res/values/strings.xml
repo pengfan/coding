@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">android_career</string>
-    
     <string name="ok">确认</string>
     <string name="cancel">取消</string>
     <string name="of_picker_setdate">设置日期</string>
@@ -13,7 +13,6 @@
     <string name="downloaded">已下载:</string>
     <string name="download_failue">下载升级文件失败！</string>
     <string name="download_update_title">有新的版本更新</string>
-    
     <string name="ui_scoller">ui/scoller</string>
     <string name="ui_tabSwitcher">ui/tabSwitcher</string>
     <string name="ui_roateView">ui/roateView</string>
@@ -21,6 +20,7 @@
     <string name="ui_fuzzyAutoComplete">ui/fuzzyAutoComplete</string>
     <string name="ui_amapframework">ui/amapframework</string>
     <string name="store_Persistence">store/Persistence</string>
+    
     
     <string name="persistence_info_male">男</string>
     <string name="persistence_info_female">女</string>
@@ -30,13 +30,24 @@
     <string name="persistence_info_hobby">爱好</string>
     <string name="persistence_info_description">描述</string>
     
+    <string name="action_bar_search">搜索</string>
+    <string name="action_bar_add">添加</string>
+    <string name="action_bar_edit">编辑</string>
+    <string name="action_bar_share">分享</string>
+    <string name="action_bar_sort">排序</string>
+    <string name="action_bar_sort_alpha">字母序</string>
+    <string name="action_bar_sort_size">大小序</string>
+    <string name="action_bar_share_with">分享</string>
+    <string name="action_bar_settings">设置</string>
     <string name="drawer_open">打开导航栏</string>
     <string name="drawer_close">关闭导航栏</string>
     
+    <string name="ui_supporv7_share_content">这是我们要分享的内容</string>
+
     <string-array name="navi_array">
         <item>导航1</item>
-        <item>导航2</item>
-        <item>导航3</item>
+        <item>搜索</item>
+        <item>分享</item>
         <item>导航4</item>
         <item>导航5</item>
     </string-array>

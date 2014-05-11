@@ -98,7 +98,7 @@
         <activity
             android:name=".ui.supportv7.Overlook"
             android:label="@string/ui_supportv7_Overlook" 
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
