@@ -17,6 +17,8 @@
     <string name="ui_tabSwitcher">ui/tabSwitcher</string>
     <string name="ui_roateView">ui/roateView</string>
     <string name="ui_supportv7_Overlook">ui/supportv7/Overlook</string>
+    <string name="ui_supportv7_MenuNaviExample">ui/supportv7/MenuNaviExample</string>
+    <string name="ui_supportv7_TabNaviExample">ui/supportv7/TabNaviExample</string>
     <string name="ui_fuzzyAutoComplete">ui/fuzzyAutoComplete</string>
     <string name="ui_amapframework">ui/amapframework</string>
     <string name="store_Persistence">store/Persistence</string>
@@ -48,6 +50,14 @@
         <item>导航1</item>
         <item>搜索</item>
         <item>分享</item>
+        <item>导航4</item>
+        <item>导航5</item>
+    </string-array>
+    
+    <string-array name="menu_navi_array">
+        <item>导航1</item>
+        <item>导航2</item>
+        <item>导航3</item>
         <item>导航4</item>
         <item>导航5</item>
     </string-array>

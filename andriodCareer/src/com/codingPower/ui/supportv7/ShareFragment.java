@@ -38,8 +38,6 @@ public class ShareFragment extends Fragment {
         MenuItem actionItem = menu.findItem(R.id.menu_item_share_action_provider_action_bar);
         ShareActionProvider actionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(actionItem);
         
-        //ShareActionProvider actionProvider = (ShareActionProvider) actionItem.getActionProvider();
-        //actionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
         // Note that you can set/change the intent any time,
         // say when the user has selected an image.
         actionProvider.setShareHistoryFileName(ShareActionProvider.DEFAULT_SHARE_HISTORY_FILE_NAME);
